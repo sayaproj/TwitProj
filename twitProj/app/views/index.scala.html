@@ -1,7 +1,31 @@
-@(message: String)
+@(twits: List[Twit], twitForm: Form[Twit])
 
-@main("Welcome to Play") {
+@import helper._
 
-    @play20.welcome(message, style = "Java")
+@main("Twit list") {
+
+    <h1>@twits.size() twit(s)</h1>
+
+    <ul>
+        @for(twit <- twits) {
+        <li>
+            @twit.label
+
+            @form(routes.Application.deleteTwit(twit.id)) {
+            <input type="submit" value="Delete">
+            }
+        </li>
+        }
+    </ul>
+
+    <h2>Add a new twit</h2>>
+
+    @form(routes.Application.newTwit()) {
+
+        @inputText(twitForm("label"))
+
+        <input type="submit" value="Create">
+
+    }
 
 }

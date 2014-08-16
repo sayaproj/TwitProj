@@ -1,18 +1,23 @@
 package controllers;
 
-import play.*;
+import play.data.*;
 import play.mvc.*;
+import models.Twit;
 
 import views.html.*;
 
 public class Application extends Controller {
 
+    static Form<Twit> twitForm = Form.form(Twit.class);
+
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
+        return redirect(routes.Application.twits());
     }
 
     public static Result twits() {
-        return TODO;
+        return ok(
+            views.html.index.render(Twit.all(), twitForm)
+        );
     }
 
     public static Result newTwit() {
