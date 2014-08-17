@@ -4,8 +4,19 @@
 
 @main("Twit list") {
 
-    <h1>@twits.size() twit(s)</h1>
+    <h1>れっつ！つぶやき！</h1>
 
+    @form(routes.Application.newTwit()) {
+
+        @inputText(twitForm("label"))
+
+        <input type="submit" value="送信"
+               style="background-color:#ffff99"
+               onmouseover="this.style.background='#99ccff'"
+               onmouseout="this.style.background='#ffff99'">
+    }
+
+    <h2>@twits.size() twit(s)</h2>
     <ul>
         @for(twit <- twits) {
         <li>
@@ -17,17 +28,5 @@
         </li>
         }
     </ul>
-
-    <h2>レッツつぶやき！</h2>>
-
-    @form(routes.Application.newTwit()) {
-
-        @inputText(twitForm("label"))
-
-        <input type="submit" value="送信"
-               style="background-color:#ffff99"
-               onmouseover="this.style.background='#99ccff'"
-               onmouseout="this.style.background='#ffff99'">
-    }
 
 }
