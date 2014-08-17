@@ -18,14 +18,16 @@
         }
     </ul>
 
-    <h2>Add a new twit</h2>>
+    <h2>レッツつぶやき！</h2>>
 
     @form(routes.Application.newTwit()) {
 
         @inputText(twitForm("label"))
 
-        <input type="submit" value="Create">
-
+        <input type="submit" value="送信"
+               style="background-color:#ffff99"
+               onmouseover="this.style.background='#99ccff'"
+               onmouseout="this.style.background='#ffff99'">
     }
 
 }
