@@ -21,7 +21,16 @@ public class Application extends Controller {
     }
 
     public static Result newTwit() {
-        return TODO;
+        Form<Twit> filledForm = twitForm.bindFromRequest();
+        if (filledForm.hasErrors()) {
+            return badRequest (
+                views.html.index.render(Twit.all(), filledForm)
+            );
+        } else {
+            Twit.create(filledForm.get());
+            return redirect(routes.Application.twits());
+        }
+
     }
 
     public static Result deleteTwit(Long id) {
