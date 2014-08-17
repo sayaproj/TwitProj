@@ -34,6 +34,7 @@ public class Application extends Controller {
     }
 
     public static Result deleteTwit(Long id) {
-        return TODO;
+        Twit.delete(id);
+        return redirect(routes.Application.twits());
     }
 }
