@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TwitProj.iml" filepath="$PROJECT_DIR$/TwitProj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/twitProj/twitProj.iml" filepath="$PROJECT_DIR$/twitProj/twitProj.iml" />
     </modules>
   </component>
 </project>
