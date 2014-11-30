@@ -4,29 +4,34 @@
 
 @main("Twit list") {
 
-    <h1>れっつ！つぶやき！</h1>
+    <h1>つぶやき！</h1>
 
-    @form(routes.Application.newTwit()) {
+    @helper.form(routes.Application.newTwit()) {
 
-        @inputText(twitForm("label"))
+        @helper.textarea(
+            field = twitForm("label"),
+            args = 'rows -> 5,
+                '_label -> "Your Tweet",
+                '_help -> ""
+        )
 
         <input type="submit" value="送信"
                style="background-color:#ffff99"
-               onmouseover="this.style.background='#99ccff'"
-               onmouseout="this.style.background='#ffff99'">
+               onmouseover="this.style.background='#ffff99'"
+               onmouseout="this.style.background='#66aa66'">
     }
 
     <h2>@twits.size() twit(s)</h2>
-    <ul>
+    <table>
         @for(twit <- twits) {
-        <li>
-            @twit.label
-
-            @form(routes.Application.deleteTwit(twit.id)) {
-            <input type="submit" value="Delete">
-            }
-        </li>
+        <tr>
+            <td>@twit.label</td>
+            <td>@helper.form(routes.Application.deleteTwit(twit.id)) {
+                    <input type="submit" value="Delete">
+            }</td>
+            <td>@helper.defaultDate(twit.getCreated)</td>
+        </tr>
         }
-    </ul>
+    </table>
 
 }

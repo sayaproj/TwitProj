@@ -1,4 +1,4 @@
-package models;
+package models.entity;
 
 import java.util.*;
 import play.db.ebean.Model;
@@ -20,7 +20,6 @@ public class Twit extends Model{
     public static Finder<Long, Twit> find = new Finder(
         Long.class, Twit.class
     );
-
     public static List<Twit> all() {
         return find.all();
     }
