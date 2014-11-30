@@ -8,6 +8,7 @@ import views.html.*;
 
 public class Application extends Controller {
 
+
     static Form<Twit> twitForm = Form.form(Twit.class);
 
     public static Result index() {
@@ -30,7 +31,6 @@ public class Application extends Controller {
             Twit.create(filledForm.get());
             return redirect(routes.Application.twits());
         }
-
     }
 
     public static Result deleteTwit(Long id) {

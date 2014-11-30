@@ -1,4 +1,4 @@
-package models.entity;
+package models;
 
 import java.util.*;
 import play.db.ebean.Model;
@@ -31,4 +31,5 @@ public class Twit extends Model{
     public static void delete(Long id) {
         find.ref(id).delete();
     }
+
 }
